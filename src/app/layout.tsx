@@ -11,7 +11,6 @@ const pretendard = localFont({
 });
 
 const title = `${site.name} — ${site.tagline}`;
-const naverVerification = process.env.NAVER_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -36,8 +35,7 @@ export const metadata: Metadata = {
     description: site.description,
   },
   verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION,
-    other: naverVerification ? { "naver-site-verification": naverVerification } : undefined,
+    other: { "naver-site-verification": "b0326fe7d6138d89881143a1abae3e3a3ab0b39a" },
   },
 };
 

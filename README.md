@@ -17,11 +17,7 @@ npm run lint
 - `public/panels/*.html` — 확장 프로그램 패널의 정적 렌더. 패널 UI가 바뀌면 uniDock 저장소에서 `npm run site:panels -- ../unidock.co.kr/public/panels`로 재생성.
 - `DESIGN.md` — 디자인 토큰과 레이아웃 규칙.
 
-## 환경 변수
+## 검색엔진 소유 확인
 
-검색엔진 소유 확인 메타태그. Vercel 프로젝트 설정에 넣으면 `<head>`에 출력된다.
-
-| 이름 | 용도 |
-| --- | --- |
-| `GOOGLE_SITE_VERIFICATION` | Google Search Console `<meta name="google-site-verification">` |
-| `NAVER_SITE_VERIFICATION` | 네이버 서치어드바이저 `<meta name="naver-site-verification">` |
+- Google Search Console: 도메인 속성, Cloudflare DNS의 `TXT @ google-site-verification=...` 레코드로 확인.
+- 네이버 서치어드바이저: `src/app/layout.tsx`의 `metadata.verification.other["naver-site-verification"]` 메타태그로 확인.
