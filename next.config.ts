@@ -5,6 +5,19 @@ const nextConfig: NextConfig = {
     // The extension's store listing and update notice link to /privacy.html.
     return [{ source: "/privacy.html", destination: "/privacy", permanent: true }];
   },
+  headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+        ],
+      },
+    ];
+  },
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
