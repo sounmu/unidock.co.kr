@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -49,7 +50,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ko" className={pretendard.variable}>
-      <body className="min-h-dvh font-sans">{children}</body>
+      <body className="min-h-dvh font-sans">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
